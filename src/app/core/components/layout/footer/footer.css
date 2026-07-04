@@ -120,6 +120,7 @@
 .footer-links {
     display: flex;
     gap: 2rem;
+    cursor: pointer;
 }
 
 .footer-links a {

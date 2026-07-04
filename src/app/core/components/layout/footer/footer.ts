@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,31 +10,12 @@ import { Component } from '@angular/core';
 })
 export class Footer {
 
-  scrollTo(section: string): void {
+  constructor(
+    private navigationService: NavigationService
+  ) {}
 
-    if (section === 'hero') {
-
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-
-      return;
-    }
-
-    const element = document.getElementById(section);
-
-    if (!element) return;
-      const navbarHeight = 30;
-
-    const y =
-      element.getBoundingClientRect().top +  //Lo que falta por llegar 
-      window.pageYOffset -                   // Me dice donde estoy - Cuanto he bajado
-      navbarHeight;                          // Respira - No queda pegado arriba
-
-    window.scrollTo({
-      top: y,
-      behavior: 'smooth'
-    });
+  navigateToSection(section: string): void {
+    this.navigationService.navigateToSection(section);
   }
+
 }
