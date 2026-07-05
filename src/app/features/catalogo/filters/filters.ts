@@ -18,6 +18,18 @@ export class Filters {
   precioMinError = false;
   precioMaxError = false;
 
+  mostrarFiltros = false;
+
+  toggleFiltros() {
+    if(window.innerWidth <= 768){
+        this.mostrarFiltros = !this.mostrarFiltros;
+    }
+  }
+
+  esMovil(): boolean{
+    return window.innerWidth <= 768;
+  }
+
   quitarFoco(event: Event): void {
     const input = event.target as HTMLInputElement;
     input.blur();
