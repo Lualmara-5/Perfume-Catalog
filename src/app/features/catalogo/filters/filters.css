@@ -1,0 +1,134 @@
+.catalog{
+    display: flex;
+    gap: 40px;
+}
+
+.filters{
+    width: 20%;
+    min-width: 260px;
+    margin: 20px 0;
+    padding: 0px 20px 0px 60px;
+    border-right: 1px solid #bdb5b5;
+    background: white;
+}
+
+.filters h2{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.filters h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.filter-group{
+    margin: 25px 0;
+}
+
+.filter-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.filter-group label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.price-range{
+    display: flex;
+    gap: 12px;
+}
+
+.price-range input{
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid #d9d9d9;
+    color:#777;         
+    text-align:center;     
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.error{
+    border: 2px solid #d32f2f !important;
+    box-shadow: 0 0 6px rgba(211,47,47,.25);
+}
+
+.mensaje-error{
+    display: block;
+    margin-top: 6px;
+    color: #d32f2f;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.price-range input:focus{
+    border-color: #CFA04A;
+    box-shadow: 0 0 0 3px rgba(207,160,74,.18);
+}
+
+/*Flechas por default*/
+
+/* Chrome, Edge, Safari */
+.price-range input::-webkit-outer-spin-button,
+.price-range input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.price-range input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.price-info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.price-info p{
+    position: relative;
+    margin: 0;
+    font-size: 12px;
+    color: #8d8d8d;
+}
+
+.price-info .max{
+    left: -20px;
+}
+
+.clear-btn{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CFA04A;
+    background: white;
+    color: #CFA04A;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.clear-btn:hover{
+    background: #CFA04A;
+    color: white;
+}
+
+hr{
+    border: none;
+    border-top: 1px solid #bdb5b5;
+}

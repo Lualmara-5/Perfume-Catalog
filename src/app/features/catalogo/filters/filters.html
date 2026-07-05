@@ -1,1 +1,107 @@
-<p>filters works!</p>
+<aside class="filters">
+  <h2>Filtrar por</h2>
+
+  <hr />
+
+  <!-- Categoría -->
+
+  <div class="filter-group">
+    <div class="filter-title">
+      <span>Categoría</span>
+    </div>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.categoria.caballero" />
+      Caballero
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.categoria.dama" />
+      Dama
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.categoria.unisex" />
+      Unisex
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.categoria.combos" />
+      Combos
+    </label>
+  </div>
+
+  <hr />
+
+  <!-- Familia -->
+
+  <div class="filter-group">
+    <div class="filter-title">
+      <span>Marcas</span>
+    </div>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.marcas.marca1" />
+      Marca 1
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.marcas.marca2" />
+      Marca 2
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.marcas.marca3" />
+      Marca 3
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.marcas.marca4" />
+      Marca 4
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="filtros.marcas.marca5" />
+      Marca 5
+    </label>
+  </div>
+
+  <hr />
+
+  <!-- Precio -->
+
+  <div class="filter-group">
+    <h3>Rango de precio</h3>
+
+    <div class="price-range">
+      <input
+        type="text"
+        currencyInput
+        [(ngModel)]="filtros.precio.minimo"
+        (blur)="validarPrecio('minimo')"
+        (keydown.enter)="quitarFoco($event)"
+        [class.error]="precioMinError"
+      />
+
+      <input
+        type="text"
+        currencyInput
+        [(ngModel)]="filtros.precio.maximo"
+        (blur)="validarPrecio('maximo')"
+        (keydown.enter)="quitarFoco($event)"
+        [class.error]="precioMaxError"
+      />
+    </div>
+
+    <small class="mensaje-error" *ngIf="precioMinError"> El mínimo permitido es $75.000 </small>
+
+    <small class="mensaje-error" *ngIf="precioMaxError"> El máximo permitido es $500.000 </small>
+
+    <div class="price-info">
+      <p>Min. $75.000</p>
+      <p class="max">Max. $500.000</p>
+    </div>
+  </div>
+
+  <button class="clear-btn" (click)="limpiarFiltros()">Limpiar filtros</button>
+</aside>
