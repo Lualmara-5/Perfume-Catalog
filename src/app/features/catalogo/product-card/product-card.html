@@ -1,1 +1,34 @@
-<p>product-card works!</p>
+<article class="product-card">
+  <!-- Imagen -->
+  <div class="card-image">
+    <button class="favorite-button" type="button" aria-label="Agregar a favoritos">
+      <i class="ri-poker-hearts-line"></i>
+    </button>
+
+    <img [src]="producto().imagenes[0]" [alt]="producto().nombre" />
+  </div>
+
+  <!-- Información -->
+  <div class="card-content">
+    <h3 class="product-name">
+      {{ producto().nombre }}
+    </h3>
+
+    <p class="product-brand">
+      {{ producto().categorias.includes('Combo') ? 'Combo Multimarca' : producto().marcas[0] }}
+    </p>
+
+    <p class="product-price">{{ producto().precio | currencyCop }}</p>
+  </div>
+
+  <!-- Acciones -->
+  <div class="card-actions">
+    <a class="btn btn-whatsapp">
+      <i class="ri-whatsapp-line"></i>
+
+      <span>Pedir por WhatsApp</span>
+    </a>
+
+    <a class="btn btn-details"> Ver detalles </a>
+  </div>
+</article>
