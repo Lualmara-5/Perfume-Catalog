@@ -138,6 +138,10 @@
 
       <small class="mensaje-error" *ngIf="precioMaxError"> El máximo permitido es $500.000 </small>
 
+      <small class="mensaje-error" *ngIf="precioRangoError">
+        El precio mínimo no puede ser mayor al máximo.
+      </small>
+
       <div class="price-info">
         <p>Min. $75.000</p>
         <p class="max">Max. $500.000</p>

@@ -11,7 +11,6 @@ import { Filtros } from '../../../models/filtros.interface';
   templateUrl: './filters.html',
   styleUrl: './filters.css',
 })
-
 export class Filters {
 
   readonly PRECIO_MIN = 75000;
@@ -19,6 +18,7 @@ export class Filters {
 
   precioMinError = false;
   precioMaxError = false;
+  precioRangoError = false;
 
   mostrarFiltros = false;
 
@@ -37,7 +37,7 @@ export class Filters {
     };
   }
 
-  /* Saber si agregamos o quitamos filtros. */
+  /* Saber si agregamos o quitamos filtros */
   toggleCategoria(categoria: string): void {
 
     const categorias = this.filtros.categorias.includes(categoria)
@@ -65,13 +65,13 @@ export class Filters {
 
     this.emitirFiltros();
   }
-  /* --- */
 
+  /* Emitir filtros */
   emitirFiltros(): void {
     this.filtrosChange.emit(this.filtros);
   }
 
-  toggleFiltros() {
+  toggleFiltros(): void {
     if (window.innerWidth <= 768) {
       this.mostrarFiltros = !this.mostrarFiltros;
     }
@@ -90,6 +90,7 @@ export class Filters {
 
     if (tipo === 'minimo') {
 
+      // Menor al mínimo permitido
       if (this.filtros.precio.minimo < this.PRECIO_MIN) {
 
         this.precioMinError = true;
@@ -98,17 +99,15 @@ export class Filters {
         setTimeout(() => {
           this.precioMinError = false;
         }, 2000);
-
-        return;
       }
 
-      if (this.filtros.precio.minimo > this.filtros.precio.maximo) {
+      // El mínimo es mayor que el máximo
+      else if (this.filtros.precio.minimo > this.filtros.precio.maximo) {
 
-        this.precioMinError = true;
-        this.filtros.precio.minimo = this.filtros.precio.maximo;
+        this.precioRangoError = true;
 
         setTimeout(() => {
-          this.precioMinError = false;
+          this.precioRangoError = false;
         }, 2000);
 
         return;
@@ -117,6 +116,7 @@ export class Filters {
 
     if (tipo === 'maximo') {
 
+      // Mayor al máximo permitido
       if (this.filtros.precio.maximo > this.PRECIO_MAX) {
 
         this.precioMaxError = true;
@@ -125,22 +125,28 @@ export class Filters {
         setTimeout(() => {
           this.precioMaxError = false;
         }, 2000);
-
-        return;
       }
 
-      if (this.filtros.precio.maximo < this.filtros.precio.minimo) {
+      // El máximo es menor que el mínimo
+      else if (this.filtros.precio.maximo < this.filtros.precio.minimo) {
 
-        this.precioMaxError = true;
-        this.filtros.precio.maximo = this.filtros.precio.minimo;
+        this.precioRangoError = true;
 
         setTimeout(() => {
-          this.precioMaxError = false;
+          this.precioRangoError = false;
         }, 2000);
 
         return;
       }
     }
+
+    // Crear nuevas referencias para detectar el cambio
+    this.filtros = {
+      ...this.filtros,
+      precio: {
+        ...this.filtros.precio
+      }
+    };
 
     this.emitirFiltros();
   }
@@ -149,6 +155,7 @@ export class Filters {
 
     this.precioMinError = false;
     this.precioMaxError = false;
+    this.precioRangoError = false;
 
     this.filtros = this.crearFiltrosIniciales();
 
