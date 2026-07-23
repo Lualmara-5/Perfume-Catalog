@@ -2,45 +2,8 @@
   <div class="container navbar-content">
     <!-- Logo -->
     <a class="navbar-brand" (click)="navigateToSection('hero')">
-      <span class="brand-title"> LUESTIX </span>
-
-      <span class="brand-subtitle"> PERFUMES </span>
+      <span class="brand-title"> AROMA </span> <span class="brand-subtitle"> INSUPERABLE </span>
     </a>
-
-    <!-- Navigation -->
-    <nav class="navbar-menu">
-      <a
-        class="nav-link"
-        [class.active]="sectionObserver.activeSection() === 'hero'"
-        (click)="navigateToSection('hero')"
-      >
-        Inicio</a
-      >
-
-      <a
-        class="nav-link"
-        [class.active]="sectionObserver.activeSection() === 'catalogo'"
-        (click)="navigateToSection('catalogo')"
-      >
-        Catálogo
-      </a>
-
-      <a
-        class="nav-link"
-        [class.active]="sectionObserver.activeSection() === 'how-to-buy'"
-        (click)="navigateToSection('how-to-buy')"
-      >
-        ¿Cómo comprar?
-      </a>
-
-      <a
-        class="nav-link"
-        [class.active]="sectionObserver.activeSection() === 'contacto'"
-        (click)="navigateToSection('contacto')"
-      >
-        Contacto
-      </a>
-    </nav>
 
     <!-- Actions -->
     <div class="navbar-actions">

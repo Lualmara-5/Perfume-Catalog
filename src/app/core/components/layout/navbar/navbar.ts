@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavigationService } from '../../../services/navigation.service';
-import { SectionObserverService } from '../../../services/section-observer.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +11,7 @@ import { SectionObserverService } from '../../../services/section-observer.servi
 export class Navbar {
 
   constructor(
-    private navigationService: NavigationService,
-    public sectionObserver: SectionObserverService
+    private navigationService: NavigationService
   ) {}
 
   navigateToSection(section: string): void {
