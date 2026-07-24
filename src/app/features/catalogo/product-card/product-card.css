@@ -111,6 +111,10 @@
     background:#be8d3d;
 }
 
+.whatsapp-mobile {
+    display: none;
+}
+
 .btn-details{
     color: #777;
     border: 1px solid #777;
@@ -168,4 +172,11 @@
         border-radius: 8px;
     }
 
+    .whatsapp-desktop {
+        display: none;
+    }
+
+    .whatsapp-mobile {
+        display: inline;
+    }
 }
