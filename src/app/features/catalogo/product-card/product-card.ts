@@ -12,5 +12,20 @@ import { CurrencyCopPipe } from '../../../shared/pipes/currency-cop.pipe';
 export class ProductCard {
 
   producto = input.required<Producto>();
+  
+  nombreProducto(): string {
+    const producto = this.producto();
 
+    if (!producto.categorias.includes('Combo')) {
+      return producto.nombre;
+    }
+
+    const nombres = producto.nombre.split(' • ');
+
+    if (nombres.length <= 2) {
+      return producto.nombre;
+    }
+
+    return `${nombres.slice(0, 2).join(' • ')} +${nombres.length - 2}`;
+  }
 }
