@@ -20,6 +20,7 @@ export const PRODUCTOS: Producto[] = [
     visible: true
     },
 
+
     {
     id: 2,
     slug: 'yum-yum',
@@ -38,6 +39,7 @@ export const PRODUCTOS: Producto[] = [
     estado: 'activo',
     visible: true
     },
+
 
     {
     id: 3,
@@ -87,6 +89,25 @@ export const PRODUCTOS: Producto[] = [
     ventas: 0,
     nuevo: true,
     destacado: false,
+    estado: 'activo',
+    visible: true
+    },
+
+    {
+    id: 5,
+    slug: 'le-beau',
+    codigo: 'P005',
+    nombre: 'Le Beau',
+    categorias: ['Hombre'],
+    marcas: ['Jean Paul Gaultier'],
+    perfumes: undefined,
+    precio: 120000,
+    imagenes: [
+        'assets/images/catalogo/product-list/le-beau.webp'
+    ],
+    ventas: 0,
+    nuevo: false,
+    destacado: true,
     estado: 'activo',
     visible: true
     }
